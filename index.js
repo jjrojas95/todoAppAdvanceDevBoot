@@ -7,9 +7,10 @@ var todoRoutes = require('./routes/todo');
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use('/api/todos',todoRoutes);
-
+app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/views"));
 app.get('/',function(req,res){
-  res.send('THIS IS THE / ROUTE');
+  res.sendFile('index.html');
 });
 
 
